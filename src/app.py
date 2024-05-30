@@ -6,15 +6,15 @@ app = Flask(__name__)
 # External API
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
-# data pre demonstraciu, mozno pouzit ORM
+# Data pre demonstraciu, mozno pouzit ORM
 posts = []
 
-# ID validacaia
+# ID validacia
 def validate_user_id(user_id):
     response = requests.get(f"{BASE_URL}/users/{user_id}")
     return response.status_code == 200
 
-# pridanie postu
+# Pridanie postu
 @app.route('/posts', methods=['POST'])
 def add_post():
     data = request.get_json()
@@ -23,7 +23,7 @@ def add_post():
         return jsonify({'message': 'Post uspesne pridany'}), 201
     return jsonify({'error': 'Nespravne User ID'}), 400
 
-# vyhladanie IDeckom
+# Vyhladanie IDeckom
 @app.route('/posts/<int:id>', methods=['GET'])
 def get_post(id):
     for post in posts:
@@ -42,7 +42,7 @@ def delete_post(id):
     for i, post in enumerate(posts):
         if post['id'] == id:
             del posts[i]
-            return jsonify({'message': 'Post odstaraneny'})
+            return jsonify({'message': 'Post odstraneny'})
     return jsonify({'error': 'Post nenajdeny'}), 404
 
 # Update postu
@@ -56,6 +56,5 @@ def update_post(id):
             return jsonify({'message': 'Post aktualizovany uspesne'})
     return jsonify({'error': 'Post nenajdeny'}), 404
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
