@@ -1,7 +1,9 @@
 instalacia na Arch based distribuciach
+
 curl -sl https://raw.githubusercontent.com/Gabko890/appPY/main/install_arch_distros.sh | sh
 
 instalacaia na debian based distribuciach
+
 curl -sl https://raw.githubusercontent.com/Gabko890/appPY/main/install_deb_distors.sh | sh
 
 na windowse 
