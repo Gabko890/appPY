@@ -11,7 +11,7 @@ dependency:
     git
     python3
 
-git clone https://github.com/Gabko890/appPY/blob/main/install_deb_distors.sh
+git clone https://github.com/Gabko890/appPY
 cd appPY
 docker build -t post-microservice .
 
